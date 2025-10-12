@@ -15,10 +15,10 @@ const submit = () => form.submit({
 </script>
 
 <template>
-    <AppLayout title="Dashboard">
+    <AppLayout title="criar escolas">
         <template #header>
             <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-                Dashboard
+                Criar Escolas
             </h2>
         </template>
 
@@ -27,7 +27,7 @@ const submit = () => form.submit({
                 <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
                    <Link :href="route('schools.index')">
                     <button>
-                        Escolas
+                        Voltar 
                     </button>
                 </Link> 
                 </div>
