@@ -6,6 +6,7 @@ use Inertia\Inertia;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\SchoolController;
 use App\Http\Controllers\StudentController;
+use Illuminate\Foundation\Http\Middleware\HandlePrecognitiveRequests;
 
 
 Route::get('/', function () {
@@ -28,7 +29,7 @@ Route::middleware([
     Route::get('/schools', [SchoolController::class, 'index'])->name('schools.index');   // List all schools
     Route::get('/schools/create', [SchoolController::class, 'create'])->name('schools.create');
     Route::get('/schools/edit', [SchoolController::class, 'edit'])->name('edit.index');
-    Route::post('/schools', [SchoolController::class, 'store'])->name('schools.store');  // Create a school
+    Route::post('/schools', [SchoolController::class, 'store'])->name('schools.store')->middleware(HandlePrecognitiveRequests::class);// Create a school
     Route::put('/schools/{id}', [SchoolController::class, 'update'])->name('schools.update'); // Update a school
     Route::delete('/schools/{id}', [SchoolController::class, 'destroy'])->name('schools.destroy'); // Delete a school
 

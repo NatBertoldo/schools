@@ -13,15 +13,15 @@ return new class extends Migration
     {
         Schema::create('school_addresses', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('school_id')->nullable();
+            $table->unsignedBigInteger('school_id');
             $table->string('zip_code');
-            $table->string('street');
-            $table->string('neighborhood');
-            $table->string('city');
-            $table->string('number');
+            $table->string('street')->nullable();
+            $table->string('neighborhood')->nullable();
+            $table->string('city')->nullable();
+            $table->string('number')->nullable();
             $table->string('complement')->nullable();
             $table->timestamps();
-            $table->foreign('school_id')->references('id')->on('schools')->nullOnDelete();
+            $table->foreign('school_id')->references('id')->on('schools')->onDelete('cascade');
         });
     }
 

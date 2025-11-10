@@ -13,12 +13,12 @@ return new class extends Migration
     {
         Schema::create('students', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('school_id')->nullable();
+            $table->unsignedBigInteger('school_id');
             $table->string('name');
-            $table->string('cpf');
-            $table->string('birth_date');
+            $table->string('cpf')->unique();
+            $table->date('birth_date')->nullable();
             $table->timestamps();
-            $table->foreign('school_id')->references('id')->on('schools')->nullOnDelete();
+            $table->foreign('school_id')->references('id')->on('schools')->onDelete('cascade');
         });
     }
 

@@ -17,4 +17,20 @@ class School extends Model
         'director',
         'year_of_foundation',
     ];
+
+    /**
+     * Relacionamento: Uma escola tem muitos estudantes
+     */
+    public function students()
+    {
+        return $this->hasMany(Student::class);
+    }
+
+    /**
+     * Relacionamento: Uma escola tem um endereço
+     */
+    public function address()
+    {
+        return $this->hasOne(SchoolAddress::class);
+    }
 }

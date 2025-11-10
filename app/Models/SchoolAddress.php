@@ -15,5 +15,14 @@ class SchoolAddress extends Model
         'city',
         'number',
         'complement',
+        'school_id',
     ];
+
+    /**
+     * Relacionamento: Um endereço pertence a uma escola
+     */
+    public function school()
+    {
+        return $this->belongsTo(School::class);
+    }
 }

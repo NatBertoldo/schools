@@ -14,11 +14,11 @@ return new class extends Migration
         Schema::create('schools', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('cnpj');
-            $table->string('telephone');
-            $table->string('email');
-            $table->string('director');
-            $table->date('year_of_foundation');
+            $table->string('cnpj')->nullable()->unique();
+            $table->string('telephone')->nullable()->unique();
+            $table->string('email')->nullable()->unique();
+            $table->string('director')->nullable();
+            $table->integer('year_of_foundation')->nullable();
             $table->timestamps();
         });
     }

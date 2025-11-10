@@ -12,5 +12,14 @@ class Student extends Model
         'name',
         'cpf',
         'birth_date',
+        'school_id',
     ];
+
+    /**
+     * Relacionamento: Um estudante pertence a uma escola
+     */
+    public function school()
+    {
+        return $this->belongsTo(School::class);
+    }
 }
